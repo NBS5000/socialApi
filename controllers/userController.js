@@ -69,6 +69,7 @@ module.exports = {
       .catch((err) => res.status(400).json(err));
   },
 
+  // Update a user
   updateUser({ params, body }, res) {
     User.findOneAndUpdate({ _id: params.id }, body, { new: true })
       .then((user) => {
@@ -80,6 +81,7 @@ module.exports = {
       })
       .catch((err) => res.status(400).json(err));
   },
+
 
   // Add a friend to friend list
   addFriend(req, res) {
@@ -94,6 +96,8 @@ module.exports = {
     .catch((err) => res.status(400).json(err));
   },
 
+
+  // Remove a friend from friend list
   removeFriend(req, res){
     User.findOneAndUpdate(
       { _id: req.params.id },
@@ -104,6 +108,5 @@ module.exports = {
       res.json({ message: 'Friend removed' })
     )
     .catch((err) => res.status(400).json(err));
-
-    }
+  },
 };

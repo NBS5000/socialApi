@@ -21,8 +21,7 @@ router.route('/:id')
 router.route('/f/:id')
   .put(addFriend);
 
-  router.route('/r/:id')
+router.route('/r/:id')
   .put(removeFriend);
-  
 
 module.exports = router;
