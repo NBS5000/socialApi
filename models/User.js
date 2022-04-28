@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
-const thoughtSchema = require('./Thought');
-const friendSchema = require('./User');
+// const thoughtSchema = require('./Thought');
+// const friendSchema = require('./User');
 
 const userSchema = new Schema(
   {
@@ -16,8 +16,9 @@ const userSchema = new Schema(
       unique: true,
       match: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
     },
-    friends: [friendSchema],
-    thoughts: [thoughtSchema],
+    // friends: [friendSchema],
+    // thoughts: [thoughtSchema],
+    
   },
   {
     toJSON: {
@@ -27,11 +28,11 @@ const userSchema = new Schema(
   }
 );
 
-userSchema
-  .virtual('friendCount')
-  .get(function () {
-    return this.length.friends;
-  });
+// userSchema
+//   .virtual('friendCount')
+//   .get(function () {
+//     return this.length.friends;
+//   });
 
 const User = model('user', userSchema);
 const handleError = (err) => console.error(err);
@@ -53,7 +54,7 @@ User.find({}).exec((err, collection) => {
         { username: 'chopper', email: 'cranky@pants.com' },
         { username: 'beeBee', email: 'eight@ball.com' },
         { username: 'letTheWookieWin', email: 'grrrrr@wrooow.com' },
-        { username: 'landoCharisma', email: 'galactic.entrepreneur.com' },
+        { username: 'landoCharisma', email: 'galactic@entrepreneur.com' },
         { username: 'jadesFire', email: 'mara@hand.com' },
         { username: 'xizor', email: 'charm@blacksun.com' },
         { username: 'knightsOfMe', email: 'kylo@ben.com' },

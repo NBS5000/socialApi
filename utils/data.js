@@ -1,19 +1,18 @@
 const usernames = [
   'bobaFett',
   'lordVader',
-  'chosenOne',
+  'chosen1',
   'obi1',
-  'obi2',
   'palp66',
   'littleAni',
   'reyRey',
   'finnnn',
-  'c3-po',
+  'threepio',
   'artoo',
   'chopper',
   'beeBee',
   'letTheWookieWin',
-  'lando',
+  'landoCharisma',
   'jadesFire',
   'xizor',
   'knightsOfMe',
@@ -27,26 +26,6 @@ const usernames = [
   'yoda-I-am',
 ];
 
-const appDescriptions = [
-  'Decision Tracker',
-  'Find My Phone',
-  'Learn Piano',
-  'Starbase Defender',
-  'Tower Defense',
-  'Monopoly Money Manager',
-  'Movie trailers',
-  'Hello world',
-  'Stupid Social Media App',
-  'Notes',
-  'Messages',
-  'Email',
-  'Compass',
-  'Firefox',
-  'Running app',
-  'Cooking app',
-  'Poker',
-  'Deliveries',
-];
 
 // Get a random item given an array
 const getRandomArrItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
