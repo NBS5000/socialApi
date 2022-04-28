@@ -88,6 +88,22 @@ module.exports = {
       { $push: { friends: req.body.id } },
       { new: true }
     )
+    .then(
+      res.json({ message: 'Friend Added!' })
+    )
     .catch((err) => res.status(400).json(err));
   },
+
+  removeFriend(req, res){
+    User.findOneAndUpdate(
+      { _id: req.params.id },
+      { $pull: { friends: req.body.id } },
+      { new: true }
+    )
+    .then(
+      res.json({ message: 'Friend removed' })
+    )
+    .catch((err) => res.status(400).json(err));
+
+    }
 };
