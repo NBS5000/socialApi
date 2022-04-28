@@ -8,7 +8,7 @@ const totalUser = async () =>
     .then((numberOfUsers) => numberOfUsers);
 
 module.exports = {
-  
+
   // Get all users
   getUsers(req, res) {
     User.find()
@@ -79,5 +79,15 @@ module.exports = {
         res.json(user); 
       })
       .catch((err) => res.status(400).json(err));
+  },
+
+  // Add a friend to friend list
+  addFriend(req, res) {
+    User.findOneAndUpdate(
+      { _id: req.params.id },
+      { $push: { friends: req.body.id } },
+      { new: true }
+    )
+    .catch((err) => res.status(400).json(err));
   },
 };
