@@ -36,15 +36,38 @@ module.exports = {
   },
 
   // Create a thought
+  // createThought(req, res) {
+  //   Thought.create(req.body)
+  //     .then((thought) => res.json(thought))
+  //     .catch((err) => {
+  //       console.log(err);
+  //       return res.status(500).json(err);
+  //     });
+  // },
+
+
+
   createThought(req, res) {
     Thought.create(req.body)
-      .then((thought) => res.json(thought))
-      .catch((err) => {
+      .then((thought) => {
+        return User.findOneAndUpdate(
+          { username: req.body.username },
+          { $push: { thoughts: thought._id } },
+          { new: true }
+        );
+      })
+      .then((user) => {
+        if (!user) {
+          res.status(404).json({ message: "No user with that ID" });
+          return;
+        }
+        res.json(user);
+      })
+        .catch((err) => {
         console.log(err);
         return res.status(500).json(err);
       });
-  },
-
+    },
 
   // Delete a thought
   deleteThought(req, res) {
