@@ -106,6 +106,19 @@ module.exports = {
       .catch((err) => res.status(400).json(err));
   },
 
+  updateUser({ params, body }, res) {
+    User.findOneAndUpdate({ _id: params.id }, body, { new: true })
+      .then((user) => {
+        if (!user) {
+          res.status(404).json({ message: "No such user exists" });
+          return;
+        }
+        res.json(user); 
+      })
+      .catch((err) => res.status(400).json(err));
+  },
+
+
   // Add a thought to a user
   // addThought(req, res) {
   //   console.log('You are adding an thought');
