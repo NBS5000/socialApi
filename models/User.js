@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
-// const thoughtSchema = require('./Thought');
-// const friendSchema = require('./User');
+const thoughtSchema = require('./Thought');
+const friendSchema = require('./User');
 
 const userSchema = new Schema(
   {
@@ -16,8 +16,20 @@ const userSchema = new Schema(
       unique: true,
       match: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
     },
-    // friends: [friendSchema],
-    // thoughts: [thoughtSchema],
+
+    friends: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "User",
+      },
+    ],
+
+    thoughts: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Thought",
+      },
+    ],
     
   },
   {
@@ -28,11 +40,11 @@ const userSchema = new Schema(
   }
 );
 
-// userSchema
-//   .virtual('friendCount')
-//   .get(function () {
-//     return this.length.friends;
-//   });
+userSchema
+  .virtual('friendCount')
+  .get(function () {
+    return this.friends.length;
+  });
 
 const User = model('user', userSchema);
 const handleError = (err) => console.error(err);

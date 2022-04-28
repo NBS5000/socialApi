@@ -9,6 +9,7 @@ module.exports = {
   },
 
 
+
   // Get a thought
   getSingleThought(req, res) {
     Thought.findOne({ _id: req.params.thoughtId })
@@ -24,7 +25,7 @@ module.exports = {
 
   // Get a users thoughts
   getUsersThoughts(req, res) {
-    Thought.findMany({ username: req.params.username })
+    Thought.find({ username: req.params.username })
       .select('-__v')
       .then((thought) =>
         !thought
