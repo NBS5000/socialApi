@@ -69,7 +69,6 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
 
-
   // Update a thought
   updateThought(req, res) {
     Thought.findOneAndUpdate(
