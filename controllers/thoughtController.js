@@ -8,6 +8,11 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
 
+  delThoughts(req, res) {
+    Thought.deleteMany()
+      .then((thoughts) => res.json(thoughts))
+      .catch((err) => res.status(500).json(err));
+  },
 
   // Get a thought
   getSingleThought(req, res) {
