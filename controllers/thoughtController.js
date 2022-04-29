@@ -1,4 +1,4 @@
-const { User, Thought, Reaction } = require('../models');
+const { User, Thought } = require('../models');
 
 module.exports = {
   // Get all thoughts
@@ -86,8 +86,9 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
 
-  addReaction(req, res) {
 
+  // add reaction
+  addReaction(req, res) {
     Thought.findOneAndUpdate(
       { _id: req.params.thoughtId },
       { $addToSet: { reactions: req.body } },
@@ -103,6 +104,8 @@ module.exports = {
       .catch((err) => res.json(err));
   },
 
+
+  // delete reaction
   removeReaction(req, res) {
     Thought.findOneAndUpdate(
       { _id: req.params.thoughtId },  
