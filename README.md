@@ -53,15 +53,9 @@ The end code is stored on Github, and publicly available and viewable. This resu
 
 As the acceptance criteria has been met and the task is now complete. 
 
-You can view the Github repo here [HERE](https://github.com/NBS5000/socialApi/)
+You can view the Github repo [HERE](https://github.com/NBS5000/socialApi/)
 
-Alternatively, here are some screenshots:
-
-> ![The Note Taker landing page](./rmImages/landing.png "Screenshot of the Note Taker landing page")
-
-> ![A note on Note Taker](./rmImages/note.png "Screenshot of a note on Note Taker")
-
-> ![An unsaved note on Note Taker](./rmImages/unsaved.png "Screenshot of an unsaved note on Note Taker")
+You can view the demo video [HERE]()
 
 ---
 <p style="text-align:center;">Written by <span style="font-style:italic">Steve Barry</span> - Due date 11/04/2022</p>
